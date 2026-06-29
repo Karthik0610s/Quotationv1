@@ -113,18 +113,16 @@ const Preview = forwardRef(({ data, subTotal, grandTotal, balance }, ref) => {
               <table className="w-full text-left border-collapse table-fixed">
                 <thead>
                   <tr className="bg-slate-50 text-slate-500 font-semibold border-b border-slate-100">
-                    <th className="py-2.5 px-3 text-[10px] uppercase tracking-wider w-[24%]">Wall / Area Description</th>
-                    <th className="py-2.5 px-3 text-[10px] uppercase tracking-wider w-[20%]">Design Details</th>
-                    <th className="py-2.5 px-2 text-[10px] uppercase tracking-wider text-center w-[12%]">Size (L × W)</th>
-                    <th className="py-2.5 px-2 text-[10px] uppercase tracking-wider text-right w-[13%]">Area</th>
-                    <th className="py-2.5 px-3 text-[10px] uppercase tracking-wider text-right w-[13%]">Rate</th>
-                    <th className="py-2.5 px-3 text-[10px] uppercase tracking-wider text-right w-[18%]">Total</th>
+                    <th className="py-2.5 px-3 text-[10px] uppercase tracking-wider w-[38%]">Wall / Description</th>
+                    <th className="py-2.5 px-3 text-[10px] uppercase tracking-wider w-[26%]">Design Details</th>
+                    <th className="py-2.5 px-2 text-[10px] uppercase tracking-wider text-right w-[18%]">Size (sq.ft)</th>
+                    <th className="py-2.5 px-3 text-[10px] uppercase tracking-wider text-right w-[18%]">Rate</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-700">
                   {projects.length === 0 ? (
                     <tr>
-                      <td colSpan="6" className="py-6 text-center text-slate-400 italic">
+                      <td colSpan="4" className="py-6 text-center text-slate-400 italic">
                         No project items added yet.
                       </td>
                     </tr>
@@ -136,14 +134,8 @@ const Preview = forwardRef(({ data, subTotal, grandTotal, balance }, ref) => {
                         <tr key={idx} className="hover:bg-slate-50">
                           <td className="py-2 px-3 font-semibold text-slate-800">{proj.description || '---'}</td>
                           <td className="py-2 px-3 text-slate-500">{proj.designDetails || '---'}</td>
-                          <td className="py-2 px-2 text-center text-slate-500">
-                            {proj.length ? `${proj.length} ft` : '-'} × {proj.width ? `${proj.width} ft` : '-'}
-                          </td>
                           <td className="py-2 px-2 text-right font-medium text-slate-600">
                             {formatNumber(area)} <span className="text-[9px] text-slate-400 font-normal">sq.ft</span>
-                          </td>
-                          <td className="py-2 px-3 text-right text-slate-600">
-                            {formatCurrency(proj.rate).replace('/\\.00$/', '')}
                           </td>
                           <td className="py-2 px-3 text-right font-bold text-brand-600">
                             {formatCurrency(cost)}
